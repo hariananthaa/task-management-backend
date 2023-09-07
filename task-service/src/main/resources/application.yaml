@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: task-service
+
+server:
+  port: 8091
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8762/eureka}
