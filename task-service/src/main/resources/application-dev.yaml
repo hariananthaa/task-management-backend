@@ -3,8 +3,13 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: passwordpw
-    url: jdbc:postgresql://localhost:5432/
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/task
   jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
     generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: false
