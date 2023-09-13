@@ -1,5 +1,6 @@
 package com.hsk.taskservice.persistent.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.hsk.taskservice.persistent.entity.base.BaseEntity;
 import jakarta.persistence.*;
 import org.hibernate.envers.Audited;
@@ -7,6 +8,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -26,6 +28,34 @@ public class Project extends BaseEntity implements Serializable {
     private String name;
 
     private String description;
+
+    @OneToMany(
+            mappedBy = "project",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    private List<Task> task;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Project project)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(getId(), project.getId()) && Objects.equals(getName(), project.getName()) && Objects.equals(getDescription(), project.getDescription()) && Objects.equals(getTask(), project.getTask());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getId(), getName(), getDescription(), getTask());
+    }
+
+    public List<Task> getTask() {
+        return task;
+    }
+
+    public void setTask(List<Task> task) {
+        this.task = task;
+    }
 
     public Project() {
     }
@@ -55,24 +85,12 @@ public class Project extends BaseEntity implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Project project)) return false;
-        if (!super.equals(o)) return false;
-        return Objects.equals(getId(), project.getId()) && Objects.equals(getName(), project.getName()) && Objects.equals(getDescription(), project.getDescription());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getId(), getName(), getDescription());
-    }
-
-    @Override
     public String toString() {
         return "Project{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", task=" + task +
                 '}';
     }
 }
