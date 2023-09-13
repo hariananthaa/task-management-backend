@@ -20,8 +20,23 @@ extra["springCloudVersion"] = "2022.0.4"
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+
+	// https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+
+	// https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-envers
+	implementation("org.hibernate.orm:hibernate-envers:6.3.0.Final")
+
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 	runtimeOnly("org.postgresql:postgresql")
+
+	// https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor
+	annotationProcessor("org.mapstruct:mapstruct-processor:1.5.3.Final")
+
+	// https://mvnrepository.com/artifact/org.mapstruct/mapstruct
+	implementation("org.mapstruct:mapstruct:1.5.3.Final")
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
