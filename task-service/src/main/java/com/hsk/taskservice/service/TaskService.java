@@ -3,7 +3,7 @@ package com.hsk.taskservice.service;
 import com.hsk.taskservice.persistent.entity.Task;
 
 public interface TaskService {
-    Task addTask(Task task);
+    Task addTask(Long projectId, Task task);
 
     Task getTaskById(Long taskId);
 

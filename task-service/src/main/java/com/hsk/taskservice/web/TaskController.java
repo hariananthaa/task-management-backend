@@ -16,14 +16,15 @@ public class TaskController {
         this.taskHelper = taskHelper;
     }
 
-    @PostMapping
-    public ResponseData addTask(
+    @PostMapping("/{projectId}")
+    public ResponseData addTaskByProjectId(
+            @PathVariable("projectId") Long projectId,
             @Valid
             @RequestBody
             TaskRequest taskRequest,
             BindingResult bindingResult
     ){
-        return taskHelper.addTask(taskRequest,bindingResult);
+        return taskHelper.addTask(projectId,taskRequest,bindingResult);
     }
 
     @PutMapping("/{taskId}")

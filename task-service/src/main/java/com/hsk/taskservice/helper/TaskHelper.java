@@ -19,9 +19,9 @@ public class TaskHelper {
         this.taskService = taskService;
     }
 
-    public ResponseData addTask(TaskRequest taskRequest, BindingResult bindingResult) {
+    public ResponseData addTask(Long projectId, TaskRequest taskRequest, BindingResult bindingResult) {
         BindingResultHelper.processBindingResult(bindingResult);
-        Task task = taskService.addTask(taskMapper.toEntity(taskRequest));
+        Task task = taskService.addTask(projectId, taskMapper.toEntity(taskRequest));
         return ResponseUtil.responseConverter(taskMapper.toDto(task));
     }
 
