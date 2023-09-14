@@ -1,6 +1,6 @@
-package com.hsk.taskservice.api.payload;
+package com.hsk.taskservice.web.payload;
 
-import com.hsk.taskservice.api.enums.Priority;
+import com.hsk.taskservice.web.enums.Priority;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.validation.annotation.Validated;
 

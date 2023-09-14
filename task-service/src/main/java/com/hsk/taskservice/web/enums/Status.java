@@ -1,4 +1,4 @@
-package com.hsk.taskservice.api.enums;
+package com.hsk.taskservice.web.enums;
 
 import org.springframework.beans.factory.annotation.Value;
 

@@ -1,9 +1,8 @@
-package com.hsk.taskservice.api;
+package com.hsk.taskservice.web;
 
-import com.hsk.taskservice.api.payload.ProjectRequest;
+import com.hsk.taskservice.web.payload.ProjectRequest;
 import com.hsk.taskservice.helper.ProjectHelper;
 import com.hsk.taskservice.utils.ResponseData;
-import com.hsk.taskservice.utils.ResponseUtil;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

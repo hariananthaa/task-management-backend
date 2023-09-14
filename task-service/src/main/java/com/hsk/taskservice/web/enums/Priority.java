@@ -1,4 +1,4 @@
-package com.hsk.taskservice.api.enums;
+package com.hsk.taskservice.web.enums;
 
 public enum Priority {
     LOW,

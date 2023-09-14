@@ -1,6 +1,6 @@
 package com.hsk.taskservice.helper;
 
-import com.hsk.taskservice.api.payload.TaskRequest;
+import com.hsk.taskservice.web.payload.TaskRequest;
 import com.hsk.taskservice.mapper.TaskMapper;
 import com.hsk.taskservice.persistent.entity.Task;
 import com.hsk.taskservice.service.TaskService;

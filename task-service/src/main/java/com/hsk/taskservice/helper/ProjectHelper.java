@@ -1,6 +1,6 @@
 package com.hsk.taskservice.helper;
 
-import com.hsk.taskservice.api.payload.ProjectRequest;
+import com.hsk.taskservice.web.payload.ProjectRequest;
 import com.hsk.taskservice.utils.ResponseData;
 import com.hsk.taskservice.utils.ResponseUtil;
 import org.springframework.stereotype.Component;

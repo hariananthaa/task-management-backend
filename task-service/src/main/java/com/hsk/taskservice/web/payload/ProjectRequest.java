@@ -1,4 +1,4 @@
-package com.hsk.taskservice.api.payload;
+package com.hsk.taskservice.web.payload;
 
 import jakarta.validation.constraints.NotBlank;
 

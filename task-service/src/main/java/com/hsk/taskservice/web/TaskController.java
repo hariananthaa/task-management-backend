@@ -1,6 +1,6 @@
-package com.hsk.taskservice.api;
+package com.hsk.taskservice.web;
 
-import com.hsk.taskservice.api.payload.TaskRequest;
+import com.hsk.taskservice.web.payload.TaskRequest;
 import com.hsk.taskservice.helper.TaskHelper;
 import com.hsk.taskservice.utils.ResponseData;
 import jakarta.validation.Valid;
