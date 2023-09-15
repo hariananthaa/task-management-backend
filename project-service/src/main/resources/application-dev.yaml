@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: passwordpw
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/project
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+openapi:
+  service:
+    title: project-service documentation
+    version: 1.0.0
+    url: http://localhost:8092

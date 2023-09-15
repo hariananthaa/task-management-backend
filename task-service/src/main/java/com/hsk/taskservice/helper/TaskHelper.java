@@ -19,12 +19,6 @@ public class TaskHelper {
         this.taskService = taskService;
     }
 
-    public ResponseData addTask(Long projectId, TaskRequest taskRequest, BindingResult bindingResult) {
-        BindingResultHelper.processBindingResult(bindingResult);
-        Task task = taskService.addTask(projectId, taskMapper.toEntity(taskRequest));
-        return ResponseUtil.responseConverter(taskMapper.toDto(task));
-    }
-
     public ResponseData updateTaskById(Long taskId,
                                        TaskRequest taskRequest,
                                        BindingResult bindingResult) {
@@ -40,6 +34,12 @@ public class TaskHelper {
 
     public ResponseData deleteTaskById(Long taskId) {
         Task task = taskService.deleteTaskById(taskId);
+        return ResponseUtil.responseConverter(taskMapper.toDto(task));
+    }
+
+    public ResponseData addTask(TaskRequest taskRequest, BindingResult bindingResult) {
+        BindingResultHelper.processBindingResult(bindingResult);
+        Task task = taskService.addTask(taskMapper.toEntity(taskRequest));
         return ResponseUtil.responseConverter(taskMapper.toDto(task));
     }
 }

@@ -37,17 +37,6 @@ public class Task extends BaseEntity implements Serializable {
     @Column(name = "due_date")
     private LocalDateTime dueDate;
 
-    @ManyToOne(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
-    )
-    @JoinColumn(
-            name = "project_id",
-            referencedColumnName = "id",
-            foreignKey = @ForeignKey(name = "PROJECT_FK")
-    )
-    private Project project;
-
     @Override
     public String toString() {
         return "Task{" +
@@ -57,7 +46,6 @@ public class Task extends BaseEntity implements Serializable {
                 ", status='" + status + '\'' +
                 ", priority='" + priority + '\'' +
                 ", dueDate=" + dueDate +
-                ", project=" + project +
                 '}';
     }
 
@@ -66,21 +54,14 @@ public class Task extends BaseEntity implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Task task)) return false;
         if (!super.equals(o)) return false;
-        return Objects.equals(getId(), task.getId()) && Objects.equals(getTitle(), task.getTitle()) && Objects.equals(getDescription(), task.getDescription()) && Objects.equals(getStatus(), task.getStatus()) && Objects.equals(getPriority(), task.getPriority()) && Objects.equals(getDueDate(), task.getDueDate()) && Objects.equals(getProject(), task.getProject());
+        return Objects.equals(getId(), task.getId()) && Objects.equals(getTitle(), task.getTitle()) && Objects.equals(getDescription(), task.getDescription()) && Objects.equals(getStatus(), task.getStatus()) && Objects.equals(getPriority(), task.getPriority()) && Objects.equals(getDueDate(), task.getDueDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getId(), getTitle(), getDescription(), getStatus(), getPriority(), getDueDate(), getProject());
+        return Objects.hash(super.hashCode(), getId(), getTitle(), getDescription(), getStatus(), getPriority(), getDueDate());
     }
 
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
 
     public Task() {
     }

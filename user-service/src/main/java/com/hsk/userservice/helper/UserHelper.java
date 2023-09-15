@@ -1,6 +1,6 @@
 package com.hsk.userservice.helper;
 
-import com.hsk.userservice.api.payload.UserRequest;
+import com.hsk.userservice.web.payload.UserRequest;
 import com.hsk.userservice.mapper.UserMapper;
 import com.hsk.userservice.persistent.entity.User;
 import com.hsk.userservice.service.UserService;

@@ -25,6 +25,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-envers
     implementation("org.hibernate.orm:hibernate-envers:6.3.0.Final")
 
+    // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-starter-webmvc-ui
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     runtimeOnly("org.postgresql:postgresql")
 

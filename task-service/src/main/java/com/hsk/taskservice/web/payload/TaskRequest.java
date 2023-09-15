@@ -1,5 +1,6 @@
 package com.hsk.taskservice.web.payload;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.hsk.taskservice.web.enums.Priority;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.validation.annotation.Validated;
@@ -13,6 +14,8 @@ public record TaskRequest(
         String title,
         String description,
         Priority priority,
+
+        @JsonProperty("due_date")
         LocalDateTime dueDate
 ) {
 }

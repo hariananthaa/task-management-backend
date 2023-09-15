@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/tasks")
+@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false") // TODO: remove this in PROD ENV
 public class TaskController {
     private final TaskHelper taskHelper;
 
@@ -16,15 +17,15 @@ public class TaskController {
         this.taskHelper = taskHelper;
     }
 
-    @PostMapping("/{projectId}")
-    public ResponseData addTaskByProjectId(
-            @PathVariable("projectId") Long projectId,
+
+    @PostMapping
+    public ResponseData addTask(
             @Valid
             @RequestBody
             TaskRequest taskRequest,
             BindingResult bindingResult
     ){
-        return taskHelper.addTask(projectId,taskRequest,bindingResult);
+        return taskHelper.addTask(taskRequest,bindingResult);
     }
 
     @PutMapping("/{taskId}")

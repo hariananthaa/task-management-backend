@@ -1,10 +1,9 @@
 package com.hsk.userservice.mapper;
 
-import com.hsk.userservice.api.payload.UserRequest;
+import com.hsk.userservice.web.payload.UserRequest;
 import com.hsk.userservice.dto.UserDto;
 import com.hsk.userservice.persistent.entity.User;
 import org.mapstruct.*;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -17,5 +17,7 @@ public record TaskDto(@JsonProperty(value = "created_at")
                       @JsonProperty(value = "updated_by")
                       String updatedBy,
                       Long id, String title, String description, String status,
-                      String priority, LocalDateTime dueDate) implements Serializable {
+                      String priority,
+                      @JsonProperty("due_date")
+                      LocalDateTime dueDate) implements Serializable {
 }
