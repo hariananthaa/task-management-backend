@@ -36,7 +36,7 @@ public class BaseEntity {
     @Version
     private Long version;
 
-    private Boolean deleted;
+    private Boolean deleted = false;
 
     public LocalDateTime getCreatedAt() {
         return createdAt;

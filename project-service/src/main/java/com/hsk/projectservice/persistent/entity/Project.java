@@ -26,20 +26,10 @@ public class Project extends BaseEntity implements Serializable {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false,unique = true)
+    private String key;
+
     private String description;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Project project)) return false;
-        if (!super.equals(o)) return false;
-        return Objects.equals(getId(), project.getId()) && Objects.equals(getName(), project.getName()) && Objects.equals(getDescription(), project.getDescription());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), getId(), getName(), getDescription());
-    }
 
     public Project() {
     }
@@ -60,6 +50,14 @@ public class Project extends BaseEntity implements Serializable {
         this.name = name;
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -73,7 +71,21 @@ public class Project extends BaseEntity implements Serializable {
         return "Project{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", key='" + key + '\'' +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Project project)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(getId(), project.getId()) && Objects.equals(getName(), project.getName()) && Objects.equals(getKey(), project.getKey()) && Objects.equals(getDescription(), project.getDescription());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getId(), getName(), getKey(), getDescription());
     }
 }

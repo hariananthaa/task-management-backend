@@ -1,10 +1,10 @@
 package com.hsk.projectservice.service.impls;
 
+import com.hsk.projectservice.exception.NotFoundException;
 import com.hsk.projectservice.mapper.ProjectMapper;
 import com.hsk.projectservice.persistent.entity.Project;
 import com.hsk.projectservice.persistent.repository.ProjectRepository;
 import com.hsk.projectservice.service.ProjectService;
-import jakarta.ws.rs.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +27,12 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project getProjectById(Long projectId) {
         return projectRepository.findById(projectId)
+                .orElseThrow(()->new NotFoundException("Project not found."));
+    }
+
+    @Override
+    public Project getProjectByKey(String projectKey) {
+        return projectRepository.findProjectByKey(projectKey)
                 .orElseThrow(()->new NotFoundException("Project not found."));
     }
 

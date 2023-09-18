@@ -3,11 +3,14 @@ package com.hsk.projectservice.web;
 import com.hsk.projectservice.helper.ProjectHelper;
 import com.hsk.projectservice.utils.ResponseData;
 import com.hsk.projectservice.web.payload.ProjectRequest;
+import io.swagger.v3.oas.annotations.Operation;
+import org.springframework.core.annotation.Order;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/project")
+@Order(1)
+@RequestMapping("/api/v1/projects")
 @CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false") // TODO: remove this in PROD ENV
 public class ProjectController {
 

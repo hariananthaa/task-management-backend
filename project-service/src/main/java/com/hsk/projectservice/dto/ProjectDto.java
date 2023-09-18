@@ -18,5 +18,5 @@ public record ProjectDto(@JsonProperty(value = "created_at")
                          LocalDateTime updatedAt,
                          @JsonProperty(value = "updated_by")
                          String updatedBy,
-                          Long id, String name, String description) implements Serializable {
+                          Long id, String name,String key, String description) implements Serializable {
 }

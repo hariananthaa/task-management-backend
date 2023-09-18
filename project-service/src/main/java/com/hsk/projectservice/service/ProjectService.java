@@ -8,6 +8,7 @@ public interface ProjectService {
     Project addProject(Project project);
 
     Project getProjectById(Long projectId);
+    Project getProjectByKey(String projectKey);
 
     Project updateProjectById(Long projectId, Project project);
 
