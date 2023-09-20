@@ -22,12 +22,6 @@ spring:
             - Path=/projects/**
           filters:
             - RewritePath=/projects/(?<path>.*), /$\{path}
-        - id: task-service
-          uri: lb://task-service
-          predicates:
-            - Path=/tasks/**
-          filters:
-            - RewritePath=/tasks/(?<path>.*), /$\{path}
         - id: openapi
           uri: http://localhost:${server.port}
           predicates:
@@ -49,8 +43,6 @@ springdoc:
         url: /users/v3/api-docs
       - name: projects
         url: /projects/v3/api-docs
-      - name: tasks
-        url: /tasks/v3/api-docs
       - name: Gateway
         url: /v3/api-docs
 

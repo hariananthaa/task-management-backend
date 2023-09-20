@@ -4,6 +4,7 @@ import com.hsk.projectservice.helper.ProjectHelper;
 import com.hsk.projectservice.utils.ResponseData;
 import com.hsk.projectservice.web.payload.ProjectRequest;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import org.springframework.core.annotation.Order;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ public class ProjectController {
 
     @PostMapping
     public ResponseData addProject(
+            @Valid
             @RequestBody
             ProjectRequest projectRequest,
             BindingResult bindingResult
@@ -39,6 +41,7 @@ public class ProjectController {
     @PutMapping("/{projectId}")
     public ResponseData updateProjectById(
             @PathVariable("projectId") Long projectId,
+            @Valid
             @RequestBody
             ProjectRequest projectRequest,
             BindingResult bindingResult

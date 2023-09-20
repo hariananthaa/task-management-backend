@@ -19,8 +19,6 @@ public class GatewayConfig {
                         .uri("http://localhost:8091"))
                 .route("project-service", r -> r.path("/api/v1/projects/**")
                         .uri("http://localhost:8092"))
-                .route("task-service", r -> r.path("/api/v1/tasks/**")
-                        .uri("http://localhost:8093"))
                 .build();
     }
 }

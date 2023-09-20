@@ -10,5 +10,10 @@
         <module name="project-service.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="task-service" target="17" />
+      <module name="task-service.main" target="17" />
+      <module name="task-service.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
