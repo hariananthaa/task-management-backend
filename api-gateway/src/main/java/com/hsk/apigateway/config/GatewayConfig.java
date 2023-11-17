@@ -16,7 +16,7 @@ public class GatewayConfig {
     public RouteLocator routes(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route("user-service", r -> r.path("/api/v1/users/**")
-                        .uri("http://localhost:8091"))
+                        .uri("http://localhost:8093"))
                 .route("project-service", r -> r.path("/api/v1/projects/**")
                         .uri("http://localhost:8092"))
                 .build();

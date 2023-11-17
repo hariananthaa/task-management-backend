@@ -1,6 +1,6 @@
 package com.hsk.userservice.mapper;
 
-import com.hsk.userservice.web.payload.UserRequest;
+import com.hsk.userservice.web.payload.UserSignupRequest;
 import com.hsk.userservice.dto.UserDto;
 import com.hsk.userservice.persistent.entity.User;
 import org.mapstruct.*;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface UserMapper {
     User toEntity(UserDto userDto);
-    User toEntity(UserRequest userRequest);
+    User toEntity(UserSignupRequest userSignupRequest);
 
     UserDto toDto(User user);
 

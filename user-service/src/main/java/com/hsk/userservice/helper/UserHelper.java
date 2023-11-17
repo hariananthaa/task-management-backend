@@ -1,6 +1,6 @@
 package com.hsk.userservice.helper;
 
-import com.hsk.userservice.web.payload.UserRequest;
+import com.hsk.userservice.web.payload.UserSignupRequest;
 import com.hsk.userservice.mapper.UserMapper;
 import com.hsk.userservice.persistent.entity.User;
 import com.hsk.userservice.service.UserService;
@@ -19,9 +19,9 @@ public class UserHelper {
         this.userMapper = userMapper;
     }
 
-    public ResponseData registerUser(UserRequest userRequest, BindingResult bindingResult) {
+    public ResponseData registerUser(UserSignupRequest userSignupRequest, BindingResult bindingResult) {
         BindingResultHelper.processBindingResult(bindingResult);
-        User user = userService.registerUser(userMapper.toEntity(userRequest));
+        User user = userService.registerUser(userMapper.toEntity(userSignupRequest));
         return ResponseUtil.responseConverter(userMapper.toDto(user));
     }
 
@@ -35,9 +35,9 @@ public class UserHelper {
         return ResponseUtil.responseConverter(userMapper.toDto(user));
     }
 
-    public ResponseData updateUser(Long userId,UserRequest userRequest, BindingResult bindingResult) {
+    public ResponseData updateUser(Long userId, UserSignupRequest userSignupRequest, BindingResult bindingResult) {
         BindingResultHelper.processBindingResult(bindingResult);
-        User user = userService.updateUserById(userId,userMapper.toEntity(userRequest));
+        User user = userService.updateUserById(userId,userMapper.toEntity(userSignupRequest));
         return ResponseUtil.responseConverter(userMapper.toDto(user));
     }
 

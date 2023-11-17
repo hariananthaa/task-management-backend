@@ -1,6 +1,6 @@
 package com.hsk.userservice.web;
 
-import com.hsk.userservice.web.payload.UserRequest;
+import com.hsk.userservice.web.payload.UserSignupRequest;
 import com.hsk.userservice.helper.UserHelper;
 import com.hsk.userservice.utils.ResponseData;
 import org.springframework.validation.BindingResult;
@@ -18,13 +18,13 @@ public class UserController {
         this.userHelper = userHelper;
     }
 
-    @PostMapping
+    @PostMapping("/register")
     public ResponseData registerUser(
             @RequestBody
-            UserRequest userRequest,
+            UserSignupRequest userSignupRequest,
             BindingResult bindingResult
     ){
-        return userHelper.registerUser(userRequest,bindingResult);
+        return userHelper.registerUser(userSignupRequest,bindingResult);
     }
 
     @GetMapping("/{userId}")
@@ -48,10 +48,10 @@ public class UserController {
             @PathVariable("userId")
             Long userId,
             @RequestBody
-            UserRequest userRequest,
+            UserSignupRequest userSignupRequest,
             BindingResult bindingResult
     ){
-        return userHelper.updateUser(userId,userRequest,bindingResult);
+        return userHelper.updateUser(userId, userSignupRequest,bindingResult);
     }
 
     @DeleteMapping("/{userId}")

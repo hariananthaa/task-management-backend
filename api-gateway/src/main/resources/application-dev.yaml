@@ -29,6 +29,8 @@ spring:
           filters:
             - RewritePath=/v3/api-docs/(?<path>.*), /$\{path}/v3/api-docs
 
+  main:
+    web-application-type: reactive
 
 springdoc:
   api-docs:
@@ -55,3 +57,5 @@ eureka:
       defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8762/eureka}
   instance:
     prefer-ip-address: true
+
+

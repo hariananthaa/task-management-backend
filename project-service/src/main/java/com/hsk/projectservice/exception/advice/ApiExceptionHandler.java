@@ -80,12 +80,12 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.ok().body(responseData);
     }
 
-    @ExceptionHandler(value = {Exception.class})
-    protected ResponseEntity<ResponseData> handleException(Exception e) {
-        ResponseData responseData = buildExceptionResponseData("Something went wrong!", HttpStatus.OK.value());
-        log.error(e.getStackTrace().toString());
-        return ResponseEntity.ok().body(responseData);
-    }
+//    @ExceptionHandler(value = {Exception.class})
+//    protected ResponseEntity<ResponseData> handleException(Exception e) {
+//        ResponseData responseData = buildExceptionResponseData("Something went wrong!", HttpStatus.OK.value());
+//        log.error(e.getStackTrace().toString());
+//        return ResponseEntity.ok().body(responseData);
+//    }
 
     protected ResponseData buildExceptionResponseData(String message, Integer status) {
         ResponseData responseData = new ResponseData<>();

@@ -8,6 +8,9 @@ import com.hsk.userservice.service.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
@@ -34,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserByEmail(String email) {
-        return userRepository.findUserByEmail(email).orElse(null);
+        return userRepository.findByEmail(email).orElse(null);
     }
 
     @Override
@@ -56,4 +59,16 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(userId);
         return user;
     }
+
+//    @Override
+//    public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
+//        User user = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail)
+//                .orElseThrow(() ->
+//                        new UsernameNotFoundException("User not found with username or email: "+ usernameOrEmail));
+//
+//        Set<GrantedAuthority> authorities = new HashSet<>();
+//
+//        return new org.springframework.security.core.userdetails.User(user.getEmail(),
+//                user.getPassword(),authorities);
+//    }
 }
