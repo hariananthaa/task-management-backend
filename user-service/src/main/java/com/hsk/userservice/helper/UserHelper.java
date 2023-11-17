@@ -9,6 +9,8 @@ import com.hsk.userservice.utils.ResponseUtil;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 
+import java.util.List;
+
 @Component
 public class UserHelper {
     private final UserService userService;
@@ -44,5 +46,10 @@ public class UserHelper {
     public ResponseData deleteUserById(Long userId) {
         User user = userService.deleteUserById(userId);
         return ResponseUtil.responseConverter(userMapper.toDto(user));
+    }
+
+    public ResponseData getAllUsers() {
+        List<User> usersList = userService.getAllUsers();
+        return ResponseUtil.responseConverter(userMapper.toDto(usersList));
     }
 }

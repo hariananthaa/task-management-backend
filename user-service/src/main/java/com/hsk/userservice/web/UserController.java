@@ -35,7 +35,7 @@ public class UserController {
         return userHelper.getUserById(userId);
     }
 
-    @GetMapping
+    @GetMapping("/email")
     public ResponseData getUserByEmail(
             @RequestParam("email")
             String email
@@ -61,4 +61,10 @@ public class UserController {
     ){
         return userHelper.deleteUserById(userId);
     }
+
+    @GetMapping
+    public ResponseData getAllUsers() {
+        return userHelper.getAllUsers();
+    }
+
 }

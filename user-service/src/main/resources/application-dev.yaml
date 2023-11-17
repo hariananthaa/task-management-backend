@@ -18,4 +18,15 @@ openapi:
   service:
     title: user-service documentation
     version: 1.0.0
-    url: http://localhost:8091
+    url: http://localhost:8093
+
+swagger-url: http://localhost:8093
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8762/eureka}
+  instance:
+    prefer-ip-address: true
